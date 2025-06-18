@@ -1,0 +1,24 @@
+h1,h3{
+    color:white;
+	text-shadow: navy 1px 0 10px;
+}
+.bx{
+    width:200;
+    border: dashed red;
+}
+div#zentai {
+    display: grid;
+	grid-auto-rows: 200px 200px;
+	grid-gap:20px;
+	padding:10px;
+	width: 1024px;
+}
+div#zentai > div {
+	margin-left: 5px;
+	background-color: #eadda7;
+}
+h3{
+    font-family: cursive;
+	background: linear-gradient( 0.25turn,white,#ffefaf);
+	margin: 5px;
+}
