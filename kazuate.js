@@ -8,33 +8,33 @@ let kaisu = 0;
 // 予想を4回実行する
 // 将来以下の hantei(); の4回の呼び出しを全て削除する
 // 代わりにここでは，ボタンを押したら hantei() を呼び出すイベント処理をする
-hantei();
-hantei();
-hantei();
-hantei();
-
+let b=document.querySelector('button#answer');
+    b.addEventListener('click',hantei);
 // ボタンを押した後の処理をする関数 hantei() の定義
 function hantei() {
   // 将来ここでは 4 ではなくテキストボックスに指定された数値を yoso に代入する
-  let yoso = 4;
+  let i=document.querySelector('input[name="suji"]');
+    let name=i.value;
+    n=Number(name);
+  let yoso =n;
   kaisu++;
 
-  console.log(`${kaisu}回目の予想: ${yoso}`);
+  console.log(`${kaisu}回目の予想: ${n}`);
 
   // すでにゲーム終了済みの場合
   if (kaisu > 3) {
     console.log(`答えは ${kotae} でした．すでにゲームは終わっています`);
+    kaisu = 100;  // ゲーム終了を示すために大きな数にしておく
     return;
   }
 
-  if (yoso === kotae) {
+  if (n === kotae) {
     console.log("正解です．おめでとう!");
-    kaisu = 100;  // ゲーム終了を示すために大きな数にしておく
   } else if (kaisu === 3) {
     console.log(`まちがい．残念でした答えは ${kotae} です．`);
-  } else if (yoso < kotae) {
+  } else if (n < kotae) {
     console.log("まちがい．答えはもっと大きいですよ");
-  } else if (yoso > kotae) {
+  } else if (n > kotae) {
     console.log("まちがい．答えはもっと小さいですよ");
   }
   // 課題3-1: 正解判定する
