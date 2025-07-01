@@ -15,27 +15,32 @@ function hantei() {
   // 将来ここでは 4 ではなくテキストボックスに指定された数値を yoso に代入する
   let i=document.querySelector('input[name="suji"]');
     let name=i.value;
-    n=Number(name);
+   let n=Number(name);
   let yoso =n;
   kaisu++;
+  let s1=document.querySelector('span#kaisu');
+  s1.textContent=kaisu;
 
-  console.log(`${kaisu}回目の予想: ${n}`);
+  let s2=document.querySelector('span#ans');
+  s2.textContent=name;
 
+  console.log(`${kaisu}回目の予想: ${yoso}`);
+let s3=document.querySelector('p#result');
   // すでにゲーム終了済みの場合
   if (kaisu > 3) {
-    console.log(`答えは ${kotae} でした．すでにゲームは終わっています`);
+    s3.textContent=(`答えは ${kotae} でした．すでにゲームは終わっています`);
     kaisu = 100;  // ゲーム終了を示すために大きな数にしておく
     return;
   }
 
-  if (n === kotae) {
-    console.log("正解です．おめでとう!");
+  if (yoso === kotae) {
+    s3.textContent=("正解です．おめでとう!");
   } else if (kaisu === 3) {
-    console.log(`まちがい．残念でした答えは ${kotae} です．`);
-  } else if (n < kotae) {
-    console.log("まちがい．答えはもっと大きいですよ");
-  } else if (n > kotae) {
-    console.log("まちがい．答えはもっと小さいですよ");
+    s3.textContent=(`まちがい．残念でした答えは ${kotae} です．`);
+  } else if (yoso < kotae) {
+    s3.textContent=("まちがい．答えはもっと大きいですよ");
+  } else if (yoso > kotae) {
+    s3.textContent=("まちがい．答えはもっと小さいですよ");
   }
   // 課題3-1: 正解判定する
   // kotae と yoso が一致するかどうか調べて結果を出力
