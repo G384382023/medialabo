@@ -1,33 +1,33 @@
 
 // 課題3-2 のプログラムはこの関数の中に記述すること
 function print(data) {
-  for(let r of data){
-    console.log(data.results.shop[r].name);//名前
-    data.results.shop[r].address;//住所
-    data.results.shop[r].mobile_access;//最寄えき
-    data.results.shop[r].access;//簡単な案内
-    data.results.shop[r].budget.average;//ディナー料金
-    data.results.shop[r].budget.name;//大体の料金
-    data.results.shop[r].capacity;//キャパ
-    data.results.shop[r].card;//支払い方法
-    data.results.shop[r].catch;//魅力
-    data.results.shop[r].charter;//貸切もできる
-    data.results.shop[r].child;//子供もok
-    data.results.shop[r].close;//休み
-    data.results.shop[r].coupon_urls.sp;//サイト？
-    data.results.shop[r].genre.name;//系統
-    data.results.shop[r].genre.catch;//キャッチコピー
-    data.results.shop[r].logo_image;//ロゴ
-    data.results.shop[r].non_smoking;//禁煙席なし
-    data.results.shop[r].open;//営業日
-    data.results.shop[r].shop_detail_memo;//質問など
+  for(let r of data.results.shop){
+    console.log(r.name);//名前
+    console.log(r.address);//住所
+    console.log(r.mobile_access);//最寄えき
+    console.log(r.access);//簡単な案内
+    console.log(r.budget.average);//ディナー料金
+    console.log(r.budget.name);//大体の料金
+    console.log('キャパ'+r.capacity+'席');//キャパ
+    console.log('支払い方法：クレジット'+r.card);//支払い方法
+    console.log(r.catch);//魅力
+    console.log(r.charter);//貸切もできる
+    console.log(r.child);//子供もok
+    console.log(r.close);//休み
+    console.log(r.coupon_urls.sp);//サイト？
+    console.log(r.genre.name);//系統
+    console.log(r.genre.catch);//キャッチコピー
+    console.log(r.logo_image);//ロゴ
+    console.log(r.non_smoking);//禁煙席なし
+    console.log(r.open);//営業日
+    console.log(r.shop_detail_memo);//質問など
   }
   }
   
 
 // 課題5-1 の関数 printDom() はここに記述すること
 function printDom(data) {
-
+  
 }
 
 // 課題6-1 のイベントハンドラ登録処理は以下に記述
