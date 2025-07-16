@@ -15,9 +15,8 @@ function print(data) {
     console.log(r.child);//子供もok
     console.log(r.close);//休み
     console.log(r.coupon_urls.sp);//サイト？
-    console.log(r.genre.name);//系統
+    console.log('系統:'+r.genre.name);//系統
     console.log(r.genre.catch);//キャッチコピー
-    console.log(r.logo_image);//ロゴ
     console.log(r.non_smoking);//禁煙席なし
     console.log(r.open);//営業日
     console.log(r.shop_detail_memo);//質問など
