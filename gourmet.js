@@ -26,13 +26,21 @@ function print(data) {
 // 課題5-1 の関数 printDom() はここに記述すること
 function printDom(data) {
   let d=document.createElement('div');
-  let b=document.querySelector('body');
+  let b=document.querySelector('div#result');
   b.insertAdjacentElement('beforeend',d);
+  let old = document.querySelector('#result div');
+  if (old) {
+    old.remove();
+  }
+  let div = document.createElement('div');
+  b.insertAdjacentElement('beforeend', div);
+  let count=1;
   for(let r of data.results.shop){
     let p=document.createElement('p');
-    // d.insertAdjacentElement('beforeend',p);
-    // p.textContent='検索結果'+(r+1)+'件目';
-    // p=document.createElement('p');
+    d.insertAdjacentElement('beforeend',p);
+    p.textContent=`[${count}件目の検索結果]`;
+    count++;
+    p=document.createElement('p');
     d.insertAdjacentElement('beforeend',p);
     p.textContent='店舗名:'+r.name;
     p=document.createElement('p');
@@ -100,44 +108,11 @@ b.addEventListener('click', sendRequest);
 
 // 課題6-1 のイベントハンドラ sendRequest() の定義
 function sendRequest() {
-  let i=document.querySelector('input[name="genru"]');
+  let i=document.querySelector('select[name="kensaku"]');
   let k=i.value;
-  let url="https://www.nishita-lab.org/web-contents/jsons/hotpepper/G001.json";
-  if(k==="居酒屋"){
-    url="https://www.nishita-lab.org/web-contents/jsons/hotpepper/G001.json";
-  }else if(k==="ダイニングバー・バル"){
-    url="https://www.nishita-lab.org/web-contents/jsons/hotpepper/G002.json";
-  }else if(k==="創作料理"){
-    url="https://www.nishita-lab.org/web-contents/jsons/hotpepper/G003.json";
-  }else if(k==="和食"){
-    url="https://www.nishita-lab.org/web-contents/jsons/hotpepper/G004.json";
-  }else if(k==="洋食"){
-    url="https://www.nishita-lab.org/web-contents/jsons/hotpepper/G005.json";
-  }else if(k==="イタリアン・フレンチ"){
-    url="https://www.nishita-lab.org/web-contents/jsons/hotpepper/G006.json";
-  }else if(k==="中華"){
-    url="https://www.nishita-lab.org/web-contents/jsons/hotpepper/G007.json";
-  }else if(k==="焼肉・ホルモン"){
-    url="https://www.nishita-lab.org/web-contents/jsons/hotpepper/G008.json";
-  }else if(k==="アジア・エスニック料理"){
-    url="https://www.nishita-lab.org/web-contents/jsons/hotpepper/G009.json";
-  }else if(k==="各国料理"){
-    url="https://www.nishita-lab.org/web-contents/jsons/hotpepper/G010.json";
-  }else if(k==="カラオケ・パーティ"){
-    url="https://www.nishita-lab.org/web-contents/jsons/hotpepper/G011.json";
-  }else if(k==="バー・カクテル"){
-    url="https://www.nishita-lab.org/web-contents/jsons/hotpepper/G012.json";
-  }else if(k==="ラーメン"){
-    url="https://www.nishita-lab.org/web-contents/jsons/hotpepper/G013.json";
-  }else if(k==="カフェ・スイーツ"){
-    url="https://www.nishita-lab.org/web-contents/jsons/hotpepper/G014.json";
-  }else if(k==="その他のグルメ"){
-    url="https://www.nishita-lab.org/web-contents/jsons/hotpepper/G015.json";
-  }else if(k==="お好み焼き・もんじゃ"){
-    url="https://www.nishita-lab.org/web-contents/jsons/hotpepper/G016.json";
-  }else if(k==="韓国料理"){
-    url="https://www.nishita-lab.org/web-contents/jsons/hotpepper/G017.json";
-  }
+  
+  let url="https://www.nishita-lab.org/web-contents/jsons/hotpepper/"+k+".json";
+  
   
 
   axios.get(url)
